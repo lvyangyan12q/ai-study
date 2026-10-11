@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Agent 系统知识体系 · 进阶课程</title>
+<style>
+:root{
+  --bg:#0b0f16;
+  --bg2:#111826;
+  --card:#141c2a;
+  --card2:#1a2434;
+  --line:#25334a;
+  --fg:#e6edf3;
+  --mut:#93a1b5;
+  --acc:#5aa9ff;
+  --acc2:#7ee787;
+  --warm:#ffb454;
+  --danger:#ff7b72;
+  --purple:#c297ff;
+  --t1:#5aa9ff;
+  --t2:#7ee787;
+  --t3:#ffb454;
+  --t4:#c297ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 500px at 12% -8%, #16233b 0%, transparent 60%),
+    radial-gradient(900px 420px at 92% 4%, #1b2a24 0%, transparent 55%),
+    var(--bg);
+  color:var(--fg);
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px 90px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;
+  background:#0c1220;border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#a5d6ff}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- sticky progress ---------- */
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+  background:rgba(11,15,22,.82);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1180px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.3px;font-size:15px;white-space:nowrap}
+.brand span{color:var(--acc)}
+.pbar{flex:1;min-width:140px;height:7px;background:#0c1220;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.pbar>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .4s}
+.pnum{font-variant-numeric:tabular-nums;color:var(--mut);font-size:13px;white-space:nowrap}
+.tnav{display:flex;gap:6px;flex-wrap:wrap}
+.tnav a{font-size:13px;color:var(--mut);padding:4px 10px;border:1px solid var(--line);border-radius:99px}
+.tnav a:hover{color:var(--fg);border-color:var(--acc);text-decoration:none}
+
+/* ---------- hero ---------- */
+.hero{padding:66px 0 34px}
+.kicker{display:inline-block;font-size:12.5px;letter-spacing:1.6px;color:var(--acc2);
+  border:1px solid #2b4a3a;background:#0f1a17;border-radius:99px;padding:4px 13px;margin-bottom:18px}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.25;margin:0 0 14px;font-weight:800;letter-spacing:-.5px}
+h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc),var(--acc2) 55%,var(--purple));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{color:var(--mut);font-size:16.5px;max-width:760px}
+.lede b{color:var(--fg);font-weight:600}
+
+/* ---------- generic ---------- */
+section{margin-top:58px}
+h2{font-size:23px;margin:0 0 6px;font-weight:750;display:flex;align-items:center;gap:10px}
+h2 .idx{font-size:12px;color:var(--bg);background:var(--acc);border-radius:6px;padding:2px 8px;font-weight:800;letter-spacing:.5px}
+.sub{color:var(--mut);font-size:14.5px;margin:0 0 20px}
+.card{background:linear-gradient(180deg,var(--card),#111827);border:1px solid var(--line);
+  border-radius:14px;padding:18px 20px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.note{background:#101a26;border:1px solid #1f3category;border-left:3px solid var(--acc);
+  border-radius:10px;padding:14px 18px;color:var(--mut);font-size:14.5px}
+.note b{color:var(--fg)}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;border:1px solid var(--line);color:var(--mut);margin:2px 4px 2px 0}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+  <div class="brand">AI&nbsp;Agent <span>系统知识体系</span></div>
+  <div class="pbar"><i id="pbarFill"></i></div>
+  <div class="pnum" id="pnum">0 / 0 已完成</div>
+  <nav class="tnav">
+    <a href="#how">用法</a>
+    <a href="#map">知识地图</a>
+    <a href="#path">推进路线</a>
+    <a href="#pace">节奏</a>
+    <a href="#quiz">自测</a>
+    <a href="concept-lab.html" target="_blank">交互实验室</a>
+  </nav>
+</div></div>
+<div class="wrap">
+
+<div class="hero">
+  <div class="kicker">进阶 · 跳过入门</div>
+  <h1>把"会用 Agent"升级成<br><em>能系统设计与调优 Agent</em></h1>
+  <p class="lede">你已经天天在用 agent 了，缺的不是"怎么调 API"，而是一张把<strong>上下文、工具、记忆、协作、评估、训练</strong>串成因果链的地图——知道每个环节为什么这样设计、失效时该往哪里看。这份课件按主线教材《深入理解 AI Agent》（<code>bojieli/ai-agent-book</code>，★53.4k）的十章骨架重排为<strong>四个层级</strong>，每一层都配一个可动手的交互实验。</p>
+</div>
+
+<section id="how">
+  <h2><span class="idx">00</span>怎么用这份课件</h2>
+  <p class="sub">它不是一个"读完就完"的文档，而是一张会被你反复回来查的地图。</p>
+  <div class="grid g3">
+    <div class="card"><b>① 先看地图，再看细节</b>
+      <p style="color:var(--mut);font-size:14.5px;margin:8px 0 0">下面的知识地图是主干。点任意模块，右侧会显示它解决什么核心问题、难在哪、配套资源、以及"怎样才算学会"。</p></div>
+    <div class="card"><b>② 抽象概念先玩实验</b>
+      <p style="color:var(--mut);font-size:14.5px;margin:8px 0 0">上下文预算、ReAct 循环、工具时序、RAG 召回、评估噪声、多 Agent 上下文——这些光看文字会玄，<a href="concept-lab.html" target="_blank">交互实验室</a>里拖一下滑块就明白了。</p></div>
+    <div class="card"><b>③ 用验收标准打勾</b>
+      <p style="color:var(--mut);font-size:14.5px;margin:8px 0 0">每个模块都写了"能独立做到 X"才算过。勾选会存在浏览器本地，顶部进度条随之增长。</p></div>
+  </div>
+  <div class="note" style="margin-top:14px">
+    <b>本课件的假设</b>（如果不符，告诉我，我按你的情况重排）：你有实际调用/编排 agent 的经验并会用 Python；目标是把原理吃透、能独立设计并诊断 agent 系统（而不是三天做出 Demo）；节奏按每周 6–8 小时、总长约 14 周设计，可整体缩放。
+  </div>
+</section>
+
+<section id="map">
+  <h2><span class="idx">01</span>知识地图：四层结构</h2>
+  <p class="sub">Agent = LLM + 上下文 + 工具。所有模块都在回答同一个问题的不同侧面：<b>如何让有限的信息处理能力，表现出可靠的行为。</b></p>
+  <div class="layer-legend">
+    <span class="lg l1">内核层 · 决定能力上限</span>
+    <span class="lg l2">系统层 · 决定能做什么任务</span>
+    <span class="lg l3">闭环层 · 决定能否持续变好</span>
+    <span class="lg l4">横切层 · 决定规模下的表现</span>
+  </div>
+  <div class="maplayout">
+    <div id="mapGrid" class="mapgrid"></div>
+    <aside id="mapDetail" class="mapdetail"></aside>
+  </div>
+</section>
+
+<section id="path">
+  <h2><span class="idx">02</span>推进路线：五个阶段</h2>
+  <p class="sub">顺序不是随意的：先把"信息如何进入模型"搞懂（阶段一），你后面读任何框架源码都会快一个数量级；评估放在中途而不是最后，因为它本身就是调试工具。</p>
+  <div id="pathList"></div>
+</section>
+
+<section id="pace">
+  <h2><span class="idx">03</span>两周一个小节：节奏模板</h2>
+  <p class="sub">每一小节都走同一个四步循环——这就是把"读过"变成"掌握"的机制。点开看每周具体做什么。</p>
+  <div id="paceList"></div>
+  <div class="note" style="margin-top:16px">
+    <b>关于时间：</b>若每周只能投入 3 小时，把"读"和"实验"合并、跳过源码精读，总周期拉长到约 24 周即可，不要删掉阶段三（评估）——它是最容易被跳过、也最影响你判断力的一环。
+  </div>
+</section>
+
+<section id="quiz">
+  <h2><span class="idx">04</span>自测：12 道判断题</h2>
+  <p class="sub">这些题故意设计成"凭直觉容易答错"。选完立刻给解析，答错不扣分，但请想清楚你原来为什么选错。</p>
+  <div id="quizBox"></div>
+  <div class="card" style="margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+    <button class="btn" id="quizReset">重做全部</button>
+    <span id="quizScore" style="color:var(--mut);font-size:14.5px"></span>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="idx">05</span>下一步</h2>
+  <div class="grid g2">
+    <div class="card">
+      <b>① 去实验区把六个抽象概念玩一遍</b>
+      <p style="color:var(--mut);font-size:14.5px">上下文预算、ReAct 循环、工具调用时序、RAG 召回、评估噪声、多 Agent 上下文模式，全部可交互。</p>
+      <p style="margin:12px 0 0"><a class="btn" href="concept-lab.html" target="_blank">打开交互实验室 →</a></p>
+    </div>
+    <div class="card">
+      <b>② 主线教材：按章精读 + 跑实验</b>
+      <p style="color:var(--mut);font-size:14.5px">《深入理解 AI Agent：设计原理与工程实践》(<code>bojieli/ai-agent-book</code>)，10 章正文 + 109 个配套实验，中文原版免费，提供 PDF/EPUB。每章卡片里都有直达链接。</p>
+      <p style="margin:12px 0 0"><a href="https://github.com/bojieli/ai-agent-book" target="_blank">github.com/bojieli/ai-agent-book ↗</a></p>
+    </div>
+  </div>
+</section>
+
+<div style="margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px">
+  星标与仓库数据核对于 2026-10-11。文中实验为教学示意模型，用于建立直觉，不代表真实模型的精确数值行为。
+</div>
+</div>

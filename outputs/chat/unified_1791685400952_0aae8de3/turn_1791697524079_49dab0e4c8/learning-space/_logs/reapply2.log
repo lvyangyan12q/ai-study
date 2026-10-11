@@ -1,0 +1,48 @@
+warning: unrecognized pattern: '/README.md'
+warning: disabling cone pattern matching
+warning: unrecognized pattern: '/README.md'
+warning: disabling cone pattern matching
+warning: The following paths are not up to date and were left despite sparse patterns:
+	chapter10/book-translation/validation/latest.json
+	chapter10/book-translation/validation/real_20260730T042330Z/orchestration/glossary.json
+	chapter10/book-translation/validation/real_20260730T042813Z/orchestration_parts/glossary.json
+	chapter10/book-translation/validation/real_20260730T043428Z/orchestration_parts/glossary.json
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/context_engineering_part_1_8_zh.md
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/context_engineering_part_2_8_zh.md
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/context_engineering_part_3_8_zh.md
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/context_engineering_part_4_8_zh.md
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/context_engineering_part_5_8_zh.md
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/context_engineering_part_6_8_zh.md
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/context_engineering_part_7_8_zh.md
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/context_engineering_part_8_8_zh.md
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/glossary.json
+	chapter10/book-translation/validation/real_20260730T044233Z/orchestration_parts/proofreading_report.json
+	chapter10/book-translation/validation/real_20260730T044233Z/single_agent_parts/context_engineering_part_1_8_zh.md
+	chapter10/book-translation/validation/real_20260730T050000Z_v2/orchestration_checkpoint.json
+	chapter10/book-translation/validation/real_20260730T050000Z_v2/orchestration_parts/glossary.json
+	chapter10/book-translation/validation/real_20260730T050000Z_v2/orchestration_parts/proofreading_report.json
+	chapter10/book-translation/validation/real_20260730T053000Z_v3/orchestration_checkpoint.json
+	chapter10/book-translation/validation/real_20260730T053000Z_v3/orchestration_parts/glossary.json
+	chapter10/book-translation/validation/real_20260730T053000Z_v3/orchestration_parts/proofreading_report.json
+	chapter10/book-translation/validation/real_20260730T053000Z_v3/single_agent_parts/progress.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/evidence.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_checkpoint.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-01.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-02.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-03.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-04.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-05.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-06.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-07.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-08.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-09.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-10.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-11.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-12.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-13.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-14.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-15.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-16.json
+	chapter10/book-translation/validation/real_20260730T061500Z_v4/judge_receipts/unit-17.json
+	chapte
+After fixing the above paths, you may want to run `git sparse-checkout reapply`.

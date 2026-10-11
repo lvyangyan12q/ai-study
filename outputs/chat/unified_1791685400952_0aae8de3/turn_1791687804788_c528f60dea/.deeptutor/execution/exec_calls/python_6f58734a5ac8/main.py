@@ -1,0 +1,1 @@
+pwd; echo "---"; ls -a; echo "---"; ls outputs 2>/dev/null | head
